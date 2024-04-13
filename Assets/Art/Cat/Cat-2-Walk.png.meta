@@ -1,0 +1,354 @@
+fileFormatVersion: 2
+guid: 0dfd2b1bf31c048a59c272bc3166b261
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cat-2-Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e236776da7de4dc2923fd0f836b80d7
+      internalID: 1845914419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 064e088f114a04cbbb0c22551209f37b
+      internalID: 84162159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35d53d3e0e9ca475b90ac2bdddc3b130
+      internalID: 2108913517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6462f74d13a2040a68f3059370e0e425
+      internalID: -1759158858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c16f22acf184d3ebf3b31cb1ba48e5
+      internalID: 195935246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958e126040f0c40c191b582982f45156
+      internalID: 540210500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_6
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f74d6b81bc7b842509db16c483eed787
+      internalID: -650740336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cat-2-Walk_7
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 4}
+        - {x: -7, y: -7}
+        - {x: 10, y: -7}
+        - {x: 10, y: 4}
+      - - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+        - {x: 10, y: 4}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c2e06b2469d46119bc07983881505a
+      internalID: -71904532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Cat-2-Walk_0: 1845914419
+      Cat-2-Walk_1: 84162159
+      Cat-2-Walk_2: 2108913517
+      Cat-2-Walk_3: -1759158858
+      Cat-2-Walk_4: 195935246
+      Cat-2-Walk_5: 540210500
+      Cat-2-Walk_6: -650740336
+      Cat-2-Walk_7: -71904532
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
