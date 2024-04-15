@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //FindObjectOfType<PlagueDoctorAI>().playerDead;
+        //murdered by plague doctor 
         if (FindObjectOfType<PlagueDoctorAI>().playerDead)
         {
             anim.SetBool("dead", true);
@@ -32,9 +32,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("dead");
             return;
         }
+
         //move
         input.x = Input.GetAxisRaw("Horizontal");
         input.y = Input.GetAxisRaw("Vertical");
+        rb.velocity = new Vector2(input.x * speed, input.y * speed);
+        //walking animation
         if (input != Vector2.zero)
         {
             anim.SetBool("isMoving", true);
@@ -44,9 +47,14 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving", false);
         }
 
-        rb.velocity = new Vector2(input.x * speed, input.y * speed);
+        //change direcitons
+        Flip();
 
+        
+    }
 
+    private void Flip()
+    {
         //change facing direction
         if (isFacingRight && input.x < 0f || !isFacingRight && input.x > 0f)
         {
@@ -56,6 +64,8 @@ public class PlayerController : MonoBehaviour
             transform.localScale = localScale;
         }
     }
+
+    //when collide with plague doc, die
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("PlagueCrow"))

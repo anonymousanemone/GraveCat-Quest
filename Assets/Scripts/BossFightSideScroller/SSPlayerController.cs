@@ -18,35 +18,29 @@ public class player_controller : MonoBehaviour
     [SerializeField]private LayerMask groundLayer;
     [SerializeField]private float distance;
 
-    private float horizontalInput;
-    private float verticalInput;
+    private Vector2 input;
     private bool isFacingRight = true;
+    private bool dead;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        dead = false;
     }
 
     private void Update()
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+
         //move player
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(horizontalInput * speed, rb.velocity.y);
+        input.x = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(input.x * speed, rb.velocity.y);
 
         Jump();
         Flip();
 
-        //set animator parameters
-        if (horizontalInput == 0) {
-            anim.SetFloat("sit-time", anim.GetFloat("sit-time") + 0.01f);
-        }
-        else
-        {
-            anim.SetFloat("sit-time", 0);
-        }
-        anim.SetBool("walk", horizontalInput != 0);
+        anim.SetBool("isMoving", input.x != 0);
         anim.SetBool("grounded", grounded);
 
 
@@ -68,7 +62,7 @@ public class player_controller : MonoBehaviour
 
     private void Flip()
     {
-        if (isFacingRight && horizontalInput < 0f || !isFacingRight && horizontalInput > 0f)
+        if (isFacingRight && input.x < 0f || !isFacingRight && input.x > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;

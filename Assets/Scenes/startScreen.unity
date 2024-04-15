@@ -183,7 +183,7 @@ MonoBehaviour:
   m_text: GRAVE CAT QUEST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
-  m_sharedMaterial: {fileID: 9104405473316145938, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
+  m_sharedMaterial: {fileID: 8310405552297183481, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_text: Quit
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
-  m_sharedMaterial: {fileID: 9104405473316145938, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
+  m_sharedMaterial: {fileID: 8310405552297183481, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_text: Info
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
-  m_sharedMaterial: {fileID: 9104405473316145938, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
+  m_sharedMaterial: {fileID: 8310405552297183481, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -1168,7 +1168,7 @@ MonoBehaviour:
   m_text: Start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
-  m_sharedMaterial: {fileID: 9104405473316145938, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
+  m_sharedMaterial: {fileID: 8310405552297183481, guid: 5b7550a8e6ba14014b34558d3a133f01, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1198,7 +1198,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
