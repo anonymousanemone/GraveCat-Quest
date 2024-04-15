@@ -12,12 +12,13 @@ public class BirdMovement : MonoBehaviour
     public int scoreValue = 10;
     [SerializeField] private ScoreManager instance;
 
+    private TDCameraController cam;
 
     void Update()
     {
 
         transform.Translate(movementDirection * speed * Time.deltaTime);
-        
+
         if ((!isOriginalBird && !IsVisible()))// || FindObjectOfType<PlagueDoctorAI>().playerDead)
         {
             Destroy(gameObject);
@@ -27,7 +28,9 @@ public class BirdMovement : MonoBehaviour
     private bool IsVisible()
     {
         Vector3 screenPosition = Camera.main.WorldToViewportPoint(transform.position);
+        //Bounds screenBounds = cam.getCameraBounds();
         return screenPosition.x >= -3 && screenPosition.x <= 3;
+        //return transform.position.x >= screenBounds.min.x && transform.position.x <= screenBounds.max.x;
     }
 
     public void SetOriginalBird(bool isOriginal)
