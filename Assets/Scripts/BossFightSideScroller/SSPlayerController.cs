@@ -21,12 +21,14 @@ public class player_controller : MonoBehaviour
     private Vector2 input;
     private bool isFacingRight = true;
     private bool dead;
+    public GameObject gameOverUI;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         dead = false;
+        gameOverUI.SetActive(false);
     }
 
     private void Update()
@@ -42,6 +44,11 @@ public class player_controller : MonoBehaviour
 
         anim.SetBool("isMoving", input.x != 0);
         anim.SetBool("grounded", grounded);
+        if (dead)
+        { 
+            gameOverUI.SetActive(true);
+            anim.SetBool("dead", true);
+        }
 
 
     }
