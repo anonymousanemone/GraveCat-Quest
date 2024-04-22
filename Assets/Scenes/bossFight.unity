@@ -1239,9 +1239,10 @@ GameObject:
   - component: {fileID: 423379258}
   - component: {fileID: 423379262}
   - component: {fileID: 423379261}
+  - component: {fileID: 423379263}
   m_Layer: 0
   m_Name: boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1406,6 +1407,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5765026, y: 0.59879196}
   m_EdgeRadius: 0
+--- !u!114 &423379263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423379257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146eefa4c316ca6468ebae8dda7b9332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1195907090}
+  tentaclePrefab: {fileID: 0}
+  maintainDistance: 5
+  moveSpeed: 2
+  damage: 1
+  attackRate: 3
 --- !u!1 &437176303
 GameObject:
   m_ObjectHideFlags: 0
@@ -5160,6 +5179,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4225244113081648101, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -11.199951
+      objectReference: {fileID: 0}
     - target: {fileID: 4640718881171342362, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5497,8 +5520,8 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  distance: 0
   gameOverUI: {fileID: 207174504}
+  health: 3
 --- !u!1 &1289411637
 GameObject:
   m_ObjectHideFlags: 0

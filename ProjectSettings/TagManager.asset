@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bird
   - PlagueCrow
+  - Boss
   layers:
   - Default
   - TransparentFX

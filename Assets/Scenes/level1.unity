@@ -2469,7 +2469,7 @@ MonoBehaviour:
   obstacleMask:
     serializedVersion: 2
     m_Bits: 8
-  gridWorldSize: {x: 22, y: 10}
+  gridWorldSize: {x: 28, y: 20}
   nodeRadius: 0.25
   distance: 1
 --- !u!1 &689395171 stripped
@@ -2852,13 +2852,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2969655445576337635, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Size.x
+      value: 0.55443907
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969655445576337635, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Size.y
+      value: 0.2466017
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969655445576337635, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969655445576337635, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.0062962025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969655445576337635, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.35953015
+      objectReference: {fileID: 0}
     - target: {fileID: 3107719604392253532, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.16
+      value: -1.212
       objectReference: {fileID: 0}
     - target: {fileID: 3107719604392253532, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: -1.07
       objectReference: {fileID: 0}
     - target: {fileID: 3107719604392253532, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2895,6 +2915,18 @@ PrefabInstance:
     - target: {fileID: 3624163791361127451, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
       propertyPath: m_Name
       value: Cat Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601220215703725976, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Radius
+      value: 0.15363434
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601220215703725976, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.14100674
+      objectReference: {fileID: 0}
+    - target: {fileID: 5601220215703725976, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.14871278
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
