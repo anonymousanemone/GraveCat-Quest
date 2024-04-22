@@ -494,7 +494,6 @@ MonoBehaviour:
   topMap: {fileID: 128656644}
   thingMap: {fileID: 1141710716}
   topTile: {fileID: 11400000, guid: 903d4a445b4c6450b863dd14cb06147e, type: 2}
-  botTile: {fileID: 11400000, guid: fd32cfdc749144f12903a02880cb3c79, type: 2}
   obstacles:
   - {fileID: 11400000, guid: 349df1cada6ca44f4aa6500b23bbd4fd, type: 2}
   - {fileID: 11400000, guid: 2f41e52fa84934ca58d168297892043a, type: 2}
