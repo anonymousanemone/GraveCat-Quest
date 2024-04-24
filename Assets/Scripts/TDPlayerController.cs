@@ -73,5 +73,14 @@ public class PlayerController : MonoBehaviour
             dead = true;
             anim.SetBool("dead", true);
         }
+        
+    }
+    //for bird eating
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bird"))
+        {
+            anim.SetTrigger("swat");
+        }
     }
 }

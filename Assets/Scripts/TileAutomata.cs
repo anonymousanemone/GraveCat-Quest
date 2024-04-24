@@ -28,18 +28,21 @@ public class TileAutomata : MonoBehaviour {
     private int[,] terrainMap;
     private int[,] decorMap;
     public Vector3Int tmpSize;
-    public Tilemap topMap;
+
+    public Tilemap bgMap;
+    public Tilemap obstacleMap;
     public Tilemap thingMap;
-    public Tile topTile;
-    //public Tile botTile;
+
+    public RuleTile bgTile;
     public Tile[] obstacles;
     public Tile[] decor;
+    public Tile[][] tileTemplate;
 
     int width;
     int height;
 
     //for generation of dark green patches using game of life, one click = one update
-    public void doSim(int nu)
+    private void doSim(int nu)
     {
         clearMap(false);
         width = tmpSize.x;
@@ -62,7 +65,7 @@ public class TileAutomata : MonoBehaviour {
             for (int y = 0; y < height; y++)
             {
                 if (terrainMap[x, y] == 1)
-                    topMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), topTile);
+                    bgMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), bgTile);
                     //botMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), botTile);
             }
         }
@@ -71,7 +74,7 @@ public class TileAutomata : MonoBehaviour {
     }
 
     //initial generation of green patches
-    public void initPos()
+    private void initPos()
     {
         for (int x = 0; x < width; x++)
         {
@@ -85,7 +88,7 @@ public class TileAutomata : MonoBehaviour {
     }
 
     //generation of decorative things, press g to generate
-    public void generateThings()
+    private void generateThings()
     {
         width = tmpSize.x;
         height = tmpSize.y;
@@ -101,16 +104,24 @@ public class TileAutomata : MonoBehaviour {
         }
 
         thingMap.ClearAllTiles();
+        obstacleMap.ClearAllTiles();
 
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
                 if (decorMap[x, y] == 1)
-                    thingMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), decor[Random.Range(0, decor.Length)]);
-                else if (decorMap[x,y] == 2)
                 {
-                    thingMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), obstacles[Random.Range(0, obstacles.Length)]);
+                    int select = Random.Range(0, decor.Length);
+                    if (select < 3)
+                    {
+                        select = Random.Range(0, decor.Length);
+                    }
+                    thingMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), decor[select]);
+                }
+                else if (decorMap[x, y] == 2)
+                {
+                    obstacleMap.SetTile(new Vector3Int(-x + width / 2, -y + height / 2, 0), obstacles[Random.Range(0, obstacles.Length)]);
                 }  
             }
 
@@ -119,7 +130,7 @@ public class TileAutomata : MonoBehaviour {
     }
 
     //updating green blob tiles from game of life algo
-    public int[,] genTilePos(int[,] oldMap)
+    private int[,] genTilePos(int[,] oldMap)
     {
         int[,] newMap = new int[width,height];
         int neighb;
@@ -211,7 +222,7 @@ public class TileAutomata : MonoBehaviour {
     }
 
 
-    public void SaveAssetMap()
+    private void SaveAssetMap()
     {
         string saveName = "tmapXY_" + count;
         var mf = GameObject.Find("Grid");
@@ -234,11 +245,12 @@ public class TileAutomata : MonoBehaviour {
 
     }
 
-    public void clearMap(bool complete)
+    private void clearMap(bool complete)
     {
 
-        topMap.ClearAllTiles();
+        bgMap.ClearAllTiles();
         thingMap.ClearAllTiles();
+        obstacleMap.ClearAllTiles();
         if (complete)
         {
             terrainMap = null;
@@ -247,6 +259,10 @@ public class TileAutomata : MonoBehaviour {
 
     }
 
+    //private void autoTiler()
+    //{
+
+    //}
 
 
 }

@@ -6,20 +6,13 @@ using UnityEngine.Tilemaps;
 
 public class SSCameraController : MonoBehaviour
 {
-    //Room camera
-    [SerializeField] private float speed;
-    //private float currentPosX;
-    //private Vector3 velocity = Vector3.zero;
-
     //Follow player
     [SerializeField] private Transform player;
     [SerializeField] private Tilemap grid;
     [SerializeField] private float aheadDistance;
-    [SerializeField] private float cameraSpeed;
-    private float lookAhead;
 
-    public Bounds tilemapBounds;
-    public Vector2 cameraSize;
+    private Bounds tilemapBounds;
+    private Vector2 cameraSize;
 
     private void Start()
     {
