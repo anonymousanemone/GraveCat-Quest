@@ -16,7 +16,7 @@ public class BirdSpawner : MonoBehaviour
         //{
         //    return;
         //}
-        Debug.Log(Time.time + " >= " + nextSpawnTime);
+        //Debug.Log(Time.time + " >= " + nextSpawnTime);
         if (Time.time >= nextSpawnTime)
         {
             Vector3 spawnPosition = CalculateSpawnPosition();
