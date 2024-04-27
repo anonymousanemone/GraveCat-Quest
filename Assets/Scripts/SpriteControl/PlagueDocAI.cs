@@ -121,5 +121,6 @@ public class PlagueDoctorAI : MonoBehaviour
         playerDead = true;
 
         gameOverUI.SetActive(true);
+        //Time.timeScale = 0f;
     }
 }

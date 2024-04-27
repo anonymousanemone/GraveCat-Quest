@@ -79,6 +79,7 @@ public class player_controller : MonoBehaviour
         if (collision.gameObject.CompareTag("Boss"))
         {
             TakeDamage(1);  // Take 1 damage
+            anim.SetTrigger("hurt");
         }
     }
 
