@@ -11,16 +11,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void quitGame()
-    {
-        Application.Quit();
-    }
-
-    private void MovetoScene(int sceneID)
-    {
-        SceneManager.LoadScene(sceneID);
-    }
-
     //tutorial code from: https://www.youtube.com/watch?v=-7I0slJyi8g&ab_channel=Chris%27Tutorials
     private void OnTriggerEnter2D(Collider2D other)
     {

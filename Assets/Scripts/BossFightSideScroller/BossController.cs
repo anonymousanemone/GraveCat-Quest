@@ -6,6 +6,7 @@ public class BossController : MonoBehaviour
 {
     public Transform player;
     public GameObject tentaclePrefab;
+    private Animator anim;
 
     public float maintainDistance = 5.0f;
     public float moveSpeed = 2.0f;
@@ -15,6 +16,7 @@ public class BossController : MonoBehaviour
     private void Start()
     {
         StartCoroutine(PerformAttack());
+        anim = GetComponent<Animator>();
     }
 
     private void Update()
@@ -31,6 +33,11 @@ public class BossController : MonoBehaviour
         if (distance > maintainDistance)
         {
             transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
+            anim.SetBool("walk", true);
+        }
+        else
+        {
+            anim.SetBool("walk", false);
         }
     }
 
@@ -46,7 +53,7 @@ public class BossController : MonoBehaviour
     private void AttackPlayer()
     {
         // Instantiate the tentacle attack at the player's position
-        Vector3 attackPosition = new Vector3(player.position.x, player.position.y - 0.5f, player.position.z);
+        Vector3 attackPosition = new Vector3(player.position.x, player.position.y+0.5f, player.position.z);
         Instantiate(tentaclePrefab, attackPosition, Quaternion.identity);
     }
 

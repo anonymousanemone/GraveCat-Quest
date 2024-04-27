@@ -9,4 +9,11 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(sceneID);
     }
+
+    private void NextScene()
+    {
+        //print("switching scene to" + sceneBuildIndex);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+    }
 }
