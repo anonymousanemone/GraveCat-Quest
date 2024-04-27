@@ -37,7 +37,7 @@ public class BirdSpawner : MonoBehaviour
                 }
             }
 
-            StartCoroutine(DestroyBirdAfterTime(newBird)); // Start coroutine to destroy bird after specified time
+            StartCoroutine(DestroyBirdAfterTime(newBird)); 
 
             nextSpawnTime = Time.time + spawnInterval;
         }
