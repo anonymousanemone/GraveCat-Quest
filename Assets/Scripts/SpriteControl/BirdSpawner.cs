@@ -7,16 +7,12 @@ public class BirdSpawner : MonoBehaviour
     public GameObject birdPrefab; 
     public float spawnInterval = 2f;
     public float spawnDistance = 10f;
+    public float birdLifetime = 5f; // Time in seconds before a bird despawns
 
     private float nextSpawnTime = 0f; 
 
     void Update()
     {
-        //if (FindObjectOfType<PlagueDoctorAI>().playerDead)
-        //{
-        //    return;
-        //}
-        //Debug.Log(Time.time + " >= " + nextSpawnTime);
         if (Time.time >= nextSpawnTime)
         {
             Vector3 spawnPosition = CalculateSpawnPosition();
@@ -41,6 +37,8 @@ public class BirdSpawner : MonoBehaviour
                 }
             }
 
+            StartCoroutine(DestroyBirdAfterTime(newBird)); 
+
             nextSpawnTime = Time.time + spawnInterval;
         }
     }
@@ -50,5 +48,11 @@ public class BirdSpawner : MonoBehaviour
         float spawnX = transform.position.x + Mathf.Sign(Random.Range(-1f, 1f)) * spawnDistance;
         float spawnY = Random.Range(Camera.main.ScreenToWorldPoint(Vector2.zero).y, Camera.main.ScreenToWorldPoint(Vector2.up * Screen.height).y);
         return new Vector3(spawnX, spawnY, 0f);
+    }
+
+    IEnumerator DestroyBirdAfterTime(GameObject bird)
+    {
+        yield return new WaitForSeconds(birdLifetime);
+        Destroy(bird);
     }
 }

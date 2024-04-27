@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class player_controller : MonoBehaviour
 {
-    //jump tutorial: https://www.youtube.com/watch?v=K1xZ-rycYY8&ab_channel=bendux
-    //ladder tutorial: https://www.youtube.com/watch?v=Ln7nv-Y2tf4&t=45s&ab_channel=Blackthornprod
-
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -14,14 +11,15 @@ public class player_controller : MonoBehaviour
     [SerializeField] private float jumpingPower = 16f;
 
     private bool grounded;
-    [SerializeField]private Transform groundCheck;
-    [SerializeField]private LayerMask groundLayer;
-    [SerializeField]private float distance;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
 
     private Vector2 input;
     private bool isFacingRight = true;
     private bool dead;
     public GameObject gameOverUI;
+
+    public int health = 3;  // Player health
 
     private void Awake()
     {
@@ -35,7 +33,7 @@ public class player_controller : MonoBehaviour
     {
         grounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
 
-        //move player
+        // Move player
         input.x = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(input.x * speed, rb.velocity.y);
 
@@ -49,8 +47,6 @@ public class player_controller : MonoBehaviour
             gameOverUI.SetActive(true);
             anim.SetBool("dead", true);
         }
-
-
     }
 
     private void Jump()
@@ -78,4 +74,27 @@ public class player_controller : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Boss"))
+        {
+            TakeDamage(1);  // Take 1 damage
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (!dead)
+        {
+            health -= damage;
+            Debug.Log("Player Health: " + health);
+
+            if (health <= 0)
+            {
+                dead = true;
+                anim.SetBool("dead", true);
+                gameOverUI.SetActive(true);  // Display game over UI
+            }
+        }
+    }
 }
