@@ -3169,6 +3169,7 @@ GameObject:
   - component: {fileID: 659130050}
   - component: {fileID: 659130049}
   - component: {fileID: 659130051}
+  - component: {fileID: 659130052}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -3225,6 +3226,18 @@ MonoBehaviour:
   gridWorldSize: {x: 28, y: 20}
   nodeRadius: 0.25
   distance: 1
+--- !u!114 &659130052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659130048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f500483fcffa52e46ac479171ed5d6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &689395171 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2777778936883952974, guid: 5ec2395a202e94fcdb22b5ca90ec675b, type: 3}
@@ -3752,6 +3765,7 @@ MonoBehaviour:
   birdPrefab: {fileID: 689395171}
   spawnInterval: 2
   spawnDistance: 10
+  birdLifetime: 5
 --- !u!4 &1302455684
 Transform:
   m_ObjectHideFlags: 0
@@ -4640,8 +4654,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 519420031}
     - target: {fileID: 8451288848586369535, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -11.199951
+      objectReference: {fileID: 0}
+    - target: {fileID: 8451288848586369535, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -10.9
+      value: -10.900024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
