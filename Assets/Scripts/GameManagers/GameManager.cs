@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     }
 
     //tutorial code from: https://www.youtube.com/watch?v=-7I0slJyi8g&ab_channel=Chris%27Tutorials
-    [SerializeField] private int sceneBuildIndex;
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         //sceneBuildIndex = 1;
@@ -35,8 +33,38 @@ public class GameManager : MonoBehaviour
 
     private void nextScene()
     {
-        print("switching scene to" + sceneBuildIndex);
-        sceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+        //print("switching scene to" + sceneBuildIndex);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gamePause();
+        }
+        winCondition();
+    }
+    private void gamePause()
+    {
+        
+    }
+    private int[] winAmount = { 15, 10, 5, 10, 10 };
+    private void winCondition()
+    {
+        int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (ScoreManager.instance.getScore() > winAmount[curSceneIndex-1] || Input.GetKeyDown("q"))
+        {
+            revealLoot();
+            Debug.Log("hello");
+
+        }
+    }
+
+    private void revealLoot()
+    {
+        GameObject item = GameObject.FindGameObjectWithTag("Loot");
+        item.SetActive(true);
     }
 }
