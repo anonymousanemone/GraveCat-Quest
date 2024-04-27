@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Bird
   - PlagueCrow
-  - Doorway
+  - Loot
   layers:
   - Default
   - TransparentFX

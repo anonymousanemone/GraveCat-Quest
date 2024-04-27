@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     private void Start()
     {
         score = 0;
+        instance = this;
     }
     private void Update()
     {
@@ -23,6 +24,10 @@ public class ScoreManager : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
+    }
+    public int getScore()
+    {
+        return score;
     }
 
 }
