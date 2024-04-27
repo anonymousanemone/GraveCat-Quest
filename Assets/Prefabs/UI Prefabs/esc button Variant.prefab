@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 629997487393613871, guid: 89aeca9b1102e481bba215a3038cedfc, type: 3}
       propertyPath: m_text
-      value: Menu
+      value: '[esc]'
       objectReference: {fileID: 0}
     - target: {fileID: 629997487393613871, guid: 89aeca9b1102e481bba215a3038cedfc, type: 3}
       propertyPath: m_fontSize
@@ -35,6 +35,10 @@ PrefabInstance:
     - target: {fileID: 1074639648290227869, guid: 89aeca9b1102e481bba215a3038cedfc, type: 3}
       propertyPath: m_Name
       value: esc button Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074639648290227869, guid: 89aeca9b1102e481bba215a3038cedfc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1429797090501336039, guid: 89aeca9b1102e481bba215a3038cedfc, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier

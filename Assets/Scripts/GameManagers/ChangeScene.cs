@@ -8,12 +8,14 @@ public class ChangeScene : MonoBehaviour
     public void MovetoScene(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+        Time.timeScale = 1f;
     }
 
-    private void NextScene()
+    public void NextScene()
     {
         //print("switching scene to" + sceneBuildIndex);
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextSceneIndex, LoadSceneMode.Single);
+        SceneManager.LoadScene(nextSceneIndex);
+        Time.timeScale = 1f;
     }
 }
