@@ -1,60 +1,36 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 //code from: https://www.youtube.com/watch?v=PA5DgZfRsAM&list=PLgOEwFbvGm5o8hayFB6skAfa8Z-mw4dPV&index=6&ab_channel=Pandemonium
 
 public class TDCameraController : MonoBehaviour
 {
-    //Room camera
-    [SerializeField] private float speed;
-    private float currentPosX;
-    private Vector3 velocity = Vector3.zero;
-    private Camera mainCamera;
-    private Bounds cameraBounds;
-
     //Follow player
     [SerializeField] private Transform player;
-    [SerializeField] private float aheadDistance;
-    [SerializeField] private float cameraSpeed;
-    private float lookAhead;
+    [SerializeField] private Tilemap grid;
+    //[SerializeField] private float aheadDistance;
+    //[SerializeField] private float cameraSpeed;
+    //private float lookAhead;
 
-    private void Awake() => mainCamera = Camera.main;
+    private Bounds tilemapBounds;
+    private Vector2 cameraSize;
 
     private void Start()
     {
-        var height = mainCamera.orthographicSize;
-        var width = height * mainCamera.aspect;
+        tilemapBounds = grid.GetComponent<TilemapRenderer>().bounds;
+        var height = Camera.main.orthographicSize;
+        var width = height * Camera.main.aspect;
+        cameraSize = new Vector2(width, height);
 
-        var minX = Globals.WorldBounds.min.x + width;
-        var maxX = Globals.WorldBounds.extents.x - width;
-
-        var minY = Globals.WorldBounds.min.y + height;
-        var maxY = Globals.WorldBounds.extents.y - height;
-
-        cameraBounds = new Bounds();
-        cameraBounds.SetMinMax(
-            new Vector3(minX, minY, 0.0f),
-            new Vector3(maxX, maxY, 0.0f)
-            );
     }
-
-    public Bounds getCameraBounds()
+    private void LateUpdate()
     {
-        return cameraBounds;
+        Vector3 viewPos = transform.position;
+
+        viewPos.x = Mathf.Clamp(player.position.x, tilemapBounds.min.x + cameraSize.x, tilemapBounds.max.x - cameraSize.x);
+        viewPos.y = Mathf.Clamp(player.position.y, tilemapBounds.min.y + cameraSize.y, tilemapBounds.max.y - cameraSize.y);
+        viewPos.z = transform.position.z;
+
+        transform.position = viewPos;
     }
-
-    private void Update()
-    {
-        //Room camera
-        //transform.position = Vector3.SmoothDamp(transform.position, new Vector3(currentPosX, transform.position.y, transform.position.z), ref velocity, speed);
-
-        //Follow player
-        transform.position = new Vector3(player.position.x + lookAhead, player.position.y, transform.position.z);
-        lookAhead = Mathf.Lerp(lookAhead, (aheadDistance * player.localScale.x), Time.deltaTime * cameraSpeed);
-    }
-
-    //public void MoveToNewRoom(Transform _newRoom)
-    //{
-    //    currentPosX = _newRoom.position.x;
-    //}
-
 }

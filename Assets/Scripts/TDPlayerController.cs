@@ -7,11 +7,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
+    [SerializeField] private float speed;
     private Vector2 input;
     private bool isFacingRight = true;
-    [SerializeField] private float speed;
     private bool dead;
-
+    private bool climbing;
+    [SerializeField] private float standDistance;
+    [SerializeField] private LayerMask doorMask;
 
     //movement is from : https://www.youtube.com/watch?v=DBGvx-cCUMw&list=PLy1Xj-4F5G_cytIH8by-bZ9TVj5qKMlZn&index=2&ab_channel=EPICDEV-GameDevelopment
     void Start()
@@ -29,7 +31,7 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("dead", true);
             rb.velocity = new Vector2(0,0);
-            Debug.Log("dead");
+            //Debug.Log("dead");
             return;
         }
 
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
         //change direcitons
         Flip();
+        Climb();
 
         
     }
@@ -65,6 +68,29 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void Climb()
+    {
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, standDistance, doorMask);
+        //Debug.Log(input.y);
+        //Debug.Log(hitInfo.collider);
+        if (hitInfo.collider != null)
+        {
+            climbing = true;
+        }
+        else
+        {
+            climbing = false;
+        }
+        anim.SetBool("climb", climbing);
+
+        ////Debug.Log(verticalInput);
+        //if (climbing == true && hitInfo.collider != null)
+        //{
+        //    input.y = Input.GetAxisRaw("Vertical");
+        //    rb.velocity = new Vector2(rb.position.x, input.y * speed);
+        //}
+    }
+
     //when collide with plague doc, die
     private void OnCollisionEnter(Collision collision)
     {
@@ -72,6 +98,15 @@ public class PlayerController : MonoBehaviour
         {
             dead = true;
             anim.SetBool("dead", true);
+        }
+        
+    }
+    //for bird eating
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Bird"))
+        {
+            anim.SetTrigger("swat");
         }
     }
 }
