@@ -23,11 +23,6 @@ public class PlagueDoctorAI : MonoBehaviour
     public bool playerDead; 
     public GameObject gameOverUI;
 
-    //temporary-------
-    public GameObject hideUI1;
-    public GameObject hideUI2;
-    //-------
-
     private void Start()
     {
         if (player == null)
@@ -40,13 +35,8 @@ public class PlagueDoctorAI : MonoBehaviour
         pathfinder = FindObjectOfType<Pathfinder>();
 
         gameOverUI.SetActive(false);
-        //temporary-------
-        hideUI1.SetActive(false);
-        hideUI2.SetActive(false);
-        //-------
 
-
-    playerDead = false;
+        playerDead = false;
 
     }
 
@@ -131,5 +121,6 @@ public class PlagueDoctorAI : MonoBehaviour
         playerDead = true;
 
         gameOverUI.SetActive(true);
+        //Time.timeScale = 0f;
     }
 }
