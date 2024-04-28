@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private SpriteRenderer render;
-    private int[] winAmount = { 15, 10, 5, 10, 10 };
+    private int[] winAmount = { 15, 10, 10, 10, 5 };
     [SerializeField] GameObject winMenu;
     private int curSceneIndex;
 
