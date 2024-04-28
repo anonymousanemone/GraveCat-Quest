@@ -7,22 +7,41 @@ public class BossController : MonoBehaviour
     public Transform player;
     public GameObject tentaclePrefab;
     private Animator anim;
+    private Animator playerAnim;
 
     public float maintainDistance = 7.0f;
     public float moveSpeed = 2.0f;
     public float breakTime = 1.0f; // Time in seconds for the boss to take a break after reaching the player
     public int damage = 1;
+    public float startMovingDistance = 4.0f;
     public float attackRate = 3.0f;
+    private bool canMove = false;
 
     private void Start()
     {
         StartCoroutine(PerformAttack());
         anim = GetComponent<Animator>();
+        playerAnim = player.GetComponent<Animator>();
     }
 
     private void Update()
     {
-        MoveTowardsPlayer();
+        if (!canMove)
+        {
+            // Check the distance between the boss and the player
+            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+            // If the distance is less than the startMovingDistance, allow the boss to start moving
+            if (distanceToPlayer <= startMovingDistance)
+            {
+                canMove = true;
+            }
+        }
+
+        if (canMove)
+        {
+            MoveTowardsPlayer();
+        }
     }
 
     private void MoveTowardsPlayer()
@@ -79,6 +98,7 @@ public class BossController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<player_controller>().TakeDamage(damage);
+            playerAnim.SetTrigger("hurt");
         }
     }
 }

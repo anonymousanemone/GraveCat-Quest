@@ -1507,7 +1507,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 10000
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1585,6 +1585,7 @@ MonoBehaviour:
   moveSpeed: 2
   breakTime: 1
   damage: 1
+  startMovingDistance: 4
   attackRate: 3
 --- !u!1001 &432623872
 PrefabInstance:
@@ -6169,6 +6170,7 @@ MonoBehaviour:
     m_Bits: 64
   gameOverUI: {fileID: 2086944763}
   health: 3
+  invincibilityDuration: 1.5
 --- !u!1 &1289411637
 GameObject:
   m_ObjectHideFlags: 0
