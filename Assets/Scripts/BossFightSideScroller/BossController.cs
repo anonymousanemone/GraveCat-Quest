@@ -8,8 +8,9 @@ public class BossController : MonoBehaviour
     public GameObject tentaclePrefab;
     private Animator anim;
 
-    public float maintainDistance = 5.0f;
+    public float maintainDistance = 7.0f;
     public float moveSpeed = 2.0f;
+    public float breakTime = 1.0f; // Time in seconds for the boss to take a break after reaching the player
     public int damage = 1;
     public float attackRate = 3.0f;
 
@@ -32,13 +33,28 @@ public class BossController : MonoBehaviour
         // Boss moves towards the player if the distance is greater than the maintainDistance
         if (distance > maintainDistance)
         {
+            // Move towards the player
             transform.position += (Vector3)(direction * moveSpeed * Time.deltaTime);
+            anim.SetBool("walk", true);
+        }
+        else if (distance < maintainDistance)
+        {
+            // Move away from the player
+            transform.position -= (Vector3)(direction * moveSpeed * Time.deltaTime);
             anim.SetBool("walk", true);
         }
         else
         {
+            // If the player is at the maintainDistance, stop walking
             anim.SetBool("walk", false);
+            StartCoroutine(TakeBreak());
         }
+    }
+
+    private IEnumerator TakeBreak()
+    {
+        // Boss takes a break after reaching the player
+        yield return new WaitForSeconds(breakTime);
     }
 
     private IEnumerator PerformAttack()
@@ -52,17 +68,18 @@ public class BossController : MonoBehaviour
 
     private void AttackPlayer()
     {
-        // Instantiate the tentacle attack at the player's position
-        Vector3 attackPosition = new Vector3(player.position.x, player.position.y+0.5f, player.position.z);
-        Instantiate(tentaclePrefab, attackPosition, Quaternion.identity);
+        // Instantiate the tentacle attack at the player's position, but at a fixed y-value that matches the ground level
+        float groundY = -1.55f; // Set this to the ground level of your game
+        Vector3 attackPosition = new Vector3(player.position.x, groundY, player.position.z);
+        GameObject tentacle = Instantiate(tentaclePrefab, attackPosition, Quaternion.identity);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            // Directly calling the TakeDamage method on the player
             collision.gameObject.GetComponent<player_controller>().TakeDamage(damage);
         }
     }
 }
+
