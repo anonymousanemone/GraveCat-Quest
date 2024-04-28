@@ -9,6 +9,7 @@ TagManager:
   - Loot
   - Boss
   - BossTentacle
+  - chandelier
   layers:
   - Default
   - TransparentFX

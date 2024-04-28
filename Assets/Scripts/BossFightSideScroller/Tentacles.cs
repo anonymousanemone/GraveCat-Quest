@@ -10,7 +10,6 @@ public class TentacleDamage : MonoBehaviour
 
     private void Start()
     {
-        // Start a coroutine to destroy the tentacle after the specified lifetime
         StartCoroutine(DestroyAfterLifetime());
     }
 
@@ -33,8 +32,6 @@ public class TentacleDamage : MonoBehaviour
     {
         // Wait for the specified lifetime duration
         yield return new WaitForSeconds(lifetime);
-
-        // Destroy the tentacle instance after the lifetime duration
         Destroy(gameObject);
     }
 }

@@ -118,7 +118,6 @@ public class player_controller : MonoBehaviour
 
     public void TriggerHurtAnimation()
     {
-        // Trigger the "hurt" animation
         anim.SetTrigger("hurt");
     }
 }
