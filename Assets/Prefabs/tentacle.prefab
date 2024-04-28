@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7781062438927497983}
   - component: {fileID: 3110450988486808808}
   - component: {fileID: 2550443571211914474}
+  - component: {fileID: -3548193952837275129}
   m_Layer: 0
   m_Name: tentacle
-  m_TagString: Untagged
+  m_TagString: BossTentacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,3 +153,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3548193952837275129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1589505937512803204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbd4366fc3acda14aba93f051922b8ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1

@@ -19,7 +19,11 @@ public class player_controller : MonoBehaviour
     private bool dead;
     public GameObject gameOverUI;
 
-    public int health = 3;  // Player health
+    public int health = 3;  
+    public float invincibilityDuration = 1.5f; 
+    private bool isInvincible = false; 
+    private float invincibilityTimer = 0f;
+
 
     private void Awake()
     {
@@ -46,6 +50,16 @@ public class player_controller : MonoBehaviour
         { 
             gameOverUI.SetActive(true);
             anim.SetBool("dead", true);
+        }
+
+        if (isInvincible)
+        {
+            invincibilityTimer -= Time.deltaTime;
+
+            if (invincibilityTimer <= 0)
+            {
+                isInvincible = false;
+            }
         }
     }
 
@@ -85,7 +99,7 @@ public class player_controller : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (!dead)
+        if (!dead && !isInvincible)
         {
             health -= damage;
             Debug.Log("Player Health: " + health);
@@ -96,6 +110,14 @@ public class player_controller : MonoBehaviour
                 anim.SetBool("dead", true);
                 gameOverUI.SetActive(true);  // Display game over UI
             }
+
+            isInvincible = true;
+            invincibilityTimer = invincibilityDuration;
         }
+    }
+
+    public void TriggerHurtAnimation()
+    {
+        anim.SetTrigger("hurt");
     }
 }
