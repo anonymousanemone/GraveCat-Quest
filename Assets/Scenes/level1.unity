@@ -128,6 +128,24 @@ Tilemap:
   m_CorrespondingSourceObject: {fileID: 5076830483488501932, guid: 30b7a22c3258a4a3e9de4f4d585c9b68, type: 3}
   m_PrefabInstance: {fileID: 404826549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &92417599 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4707030585623877354, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+  m_PrefabInstance: {fileID: 6259308995551672848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &92417604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92417599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24ba7f0617cf44ec8c2a80df8a03eee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 527143655}
 --- !u!4 &202235219 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3107719604392253532, guid: e794472b5dd504d1b86b0fea95fb1db8, type: 3}
@@ -1882,6 +1900,11 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &527143655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6857418107939548730, guid: f8c5228a97da34e44a57ff118d5222e7, type: 3}
+  m_PrefabInstance: {fileID: 327006695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &553016098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2358,6 +2381,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 92417604}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseMenu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554824935648514769, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4640718881171342362, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2445,7 +2496,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4707030585623877354, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 92417604}
   m_SourcePrefab: {fileID: 100100000, guid: 131fed3aa301a4b119de5e3e2caef9a7, type: 3}
 --- !u!114 &6259308995551672849 stripped
 MonoBehaviour:
