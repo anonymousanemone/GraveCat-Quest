@@ -22,16 +22,32 @@ public class BossController : MonoBehaviour
 
     private bool specialAttackCompleted = false;
 
+    public GameObject winScreen;
+    public Camera mainCamera;
+
+    private GameObject chandelier; 
+    private Vector3 chandelierOriginalPosition;
+
+    public bool playerDead; 
 
     private void Start()
     {
         StartCoroutine(PerformAttack());
         anim = GetComponent<Animator>();
         playerAnim = player.GetComponent<Animator>();
+        winScreen.SetActive(false);
+        playerDead = false;
+
+        chandelier = GameObject.FindGameObjectWithTag("chandelier");
+        chandelierOriginalPosition = chandelier.transform.position;
     }
 
     private void Update()
     {
+
+        if (playerDead)
+            return;
+
         if (!canMove)
         {
             float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -66,16 +82,12 @@ public class BossController : MonoBehaviour
         else
         {
             anim.SetBool("walk", false);
-            // canMove = false; 
             StartCoroutine(TakeBreak()); 
         }
     }
 
-
-
     private IEnumerator TakeBreak()
     {
-        // Boss takes a break after reaching the player
         anim.SetBool("walk", false);
         yield return new WaitForSeconds(breakTime);
     }
@@ -111,6 +123,12 @@ public class BossController : MonoBehaviour
             collision.gameObject.GetComponent <player_controller>().TakeDamage(damage);
             playerAnim.SetTrigger("hurt");
         }
+        else if (collision.gameObject.tag == "chandelier")
+        {
+            Debug.Log("Chandelier hit the Boss!"); 
+            winScreen.SetActive(true);
+            anim.SetBool("death", true);
+        }
     }
 
     private IEnumerator ShakeBoss(float duration, float magnitude)
@@ -122,7 +140,6 @@ public class BossController : MonoBehaviour
         {
             float offsetX = Random.Range(-1f, 1f) * magnitude;
             float offsetY = Random.Range(-1f, 1f) * magnitude;
-
 
             transform.position = originalPosition + new Vector3(offsetX, offsetY, 0f);
 
@@ -138,10 +155,7 @@ public class BossController : MonoBehaviour
         float groundY = -1.6f;
         float startOffset = 2.5f;
 
-        // anim.SetBool("walk", false);
-        // anim.SetTrigger("attack1");
-        StartCoroutine(ShakeBoss(0.5f, 0.1f));
-
+        StartCoroutine(ShakeBoss(0.5f, 0.1f)); // Boss shakes
 
         for (int i = 0; i < 18; i++)
         {
@@ -155,42 +169,68 @@ public class BossController : MonoBehaviour
         StartCoroutine(FinalAttack());
     }
 
-    private IEnumerator FinalAttack()
+    private IEnumerator ShakeCamera(float duration, float magnitude)
     {
-        while (true)
+        Vector3 originalPos = mainCamera.transform.position;
+
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
         {
-            yield return new WaitForSeconds(attackRate);
+            float x = Random.Range(-1f, 1f) * magnitude;
+            float y = Random.Range(-1f, 1f) * magnitude;
 
-            if (specialAttackCompleted)
-            {
-                anim.SetBool("walk", false);
-                // anim.SetTrigger("attack1");
-                StartCoroutine(ShakeBoss(0.5f, 0.1f));
+            mainCamera.transform.position = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
 
-                yield return new WaitForSeconds(1.0f);
-
-                GameObject[] chandeliers = GameObject.FindGameObjectsWithTag("chandelier");
-                foreach (GameObject chandelier in chandeliers)
-                {
-                    Rigidbody2D rb = chandelier.GetComponent<Rigidbody2D>();
-                    rb.gravityScale = 1; // Enable gravity for chandelier
-
-                    chandelier.SetActive(false);
-                    chandelier.transform.position = new Vector3(chandelier.transform.position.x, 5.0f, chandelier.transform.position.z);
-                }
-                yield return new WaitForSeconds(3.0f);
-                foreach (GameObject chandelier in chandeliers)
-                {
-                    chandelier.SetActive(true);
-                }
-
-                specialAttackCompleted = false;
-            }
-            else
-            {
-                AttackPlayer();
-            }
+            elapsed += Time.deltaTime;
+            yield return null;
         }
+
+        mainCamera.transform.position = originalPos;
     }
 
+    private IEnumerator FinalAttack()
+    {
+
+        
+        StartCoroutine(ShakeBoss(0.5f, 0.1f));
+        StartCoroutine(ShakeCamera(0.5f, 0.1f)); 
+
+        yield return new WaitForSeconds(0.5f);
+
+        StartCoroutine(ShakeCamera(1.0f, 0.2f)); 
+
+        yield return new WaitForSeconds(1.0f);
+
+        StartCoroutine(ChandelierShakeAndFall()); 
+
+        specialAttackCompleted = false;
+    }
+
+    private IEnumerator ChandelierShakeAndFall()
+    {
+        Rigidbody2D rb = chandelier.GetComponent<Rigidbody2D>();
+        Vector3 originalPosition = chandelier.transform.position;
+        float elapsed = 0.0f;
+
+        rb.gravityScale = 1; // Chandelier falls
+
+        while (elapsed < 0.5f)
+        {
+            float offsetX = Random.Range(-0.1f, 0.1f);
+            float offsetY = Random.Range(-0.1f, 0.1f);
+
+            chandelier.transform.position = originalPosition + new Vector3(offsetX, offsetY, 0);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        chandelier.transform.position = originalPosition;
+        
+        yield return new WaitForSeconds(1.0f);
+
+        // Respawn the chandelier in its original position
+        chandelier.transform.position = chandelierOriginalPosition;
+        rb.gravityScale = 0; 
+    }
 }

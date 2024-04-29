@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player_controller : MonoBehaviour
 {
@@ -22,7 +23,9 @@ public class player_controller : MonoBehaviour
     public int health = 3;  
     public float invincibilityDuration = 1.5f; 
     private bool isInvincible = false; 
-    private float invincibilityTimer = 0f;
+    private float invincibilityTimer = 1f;
+
+    public HealthBar healthBar;
 
 
     private void Awake()
@@ -31,6 +34,7 @@ public class player_controller : MonoBehaviour
         anim = GetComponent<Animator>();
         dead = false;
         gameOverUI.SetActive(false);
+        healthBar.SetMaxHealth(health);
     }
 
     private void Update()
@@ -50,6 +54,7 @@ public class player_controller : MonoBehaviour
         { 
             gameOverUI.SetActive(true);
             anim.SetBool("dead", true);
+            rb.velocity = new Vector2(0,0);
         }
 
         if (isInvincible)
@@ -108,11 +113,13 @@ public class player_controller : MonoBehaviour
             {
                 dead = true;
                 anim.SetBool("dead", true);
-                gameOverUI.SetActive(true);  // Display game over UI
+                gameOverUI.SetActive(true);  
             }
 
             isInvincible = true;
             invincibilityTimer = invincibilityDuration;
+
+            healthBar.SetHealth(health);
         }
     }
 
