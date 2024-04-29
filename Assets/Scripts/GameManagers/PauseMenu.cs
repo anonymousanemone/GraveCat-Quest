@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu; 
+    private int currentSceneIndex; 
 
     public void Pause(){
         pauseMenu.SetActive(true);
@@ -18,6 +19,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void Home(int sceneID){
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex; 
+        PlayerPrefs.SetInt("SavedScene", currentSceneIndex); 
         Time.timeScale = 1f;
         SceneManager.LoadScene(sceneID);
     }
