@@ -610,7 +610,7 @@ MonoBehaviour:
   decorChance: 7
   obstacleChance: 5
   numR: 1
-  tmpSize: {x: 64, y: 32, z: 0}
+  tmpSize: {x: 32, y: 64, z: 0}
   bgMap: {fileID: 128656644}
   obstacleMap: {fileID: 224154960}
   thingMap: {fileID: 1141710716}

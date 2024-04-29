@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed;
     private Vector2 input;
     private bool isFacingRight = true;
-    private bool dead;
+    //private bool dead;
     private bool climbing;
     [SerializeField] private float standDistance;
     [SerializeField] private LayerMask doorMask;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        dead = false;
+        //dead = false;
     }
 
     // Update is called once per frame
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlagueCrow"))
         {
-            dead = true;
+            //dead = true;
             anim.SetBool("dead", true);
         }
         

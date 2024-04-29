@@ -14,7 +14,10 @@ public class GameManager : MonoBehaviour
     {
         //loot = GameObject.FindGameObjectWithTag("Loot");
         render = gameObject.GetComponent<SpriteRenderer>();
-        render.enabled = false;
+        if (render)
+        {
+            render.enabled = false;
+        }
         curSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //Debug.Log(curSceneIndex);
     }
@@ -22,7 +25,12 @@ public class GameManager : MonoBehaviour
     //tutorial code from: https://www.youtube.com/watch?v=-7I0slJyi8g&ab_channel=Chris%27Tutorials
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if ((curSceneIndex == 6 || render.enabled) && other.gameObject.CompareTag("Player"))
+        if (curSceneIndex == 6 && other.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine(DelayThenFade());
+
+        }
+        else if (render.enabled && other.gameObject.CompareTag("Player"))
         {
             winMenu.SetActive(true);
             Time.timeScale = 0f;
@@ -36,15 +44,23 @@ public class GameManager : MonoBehaviour
         //Debug.Log(curSceneIndex);
         if (curSceneIndex < 6)
         {
-            winCondition();
+            showLoot();
         }
     }
 
-    private void winCondition()
+    private void showLoot()
     {
         if (ScoreManager.instance.getScore() > winAmount[curSceneIndex-1] || Input.GetKeyDown("q"))
         {
             render.enabled = true;
         }
+    }
+
+    IEnumerator DelayThenFade()
+    {
+        yield return new WaitForSeconds(1);
+        winMenu.SetActive(true);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(curSceneIndex+1);
     }
 }
