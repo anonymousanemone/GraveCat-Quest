@@ -6474,7 +6474,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142996421}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 19f119c43063346479dd54998dac4e82, type: 3}
@@ -9141,13 +9141,11 @@ SceneRoots:
   - {fileID: 1125452074}
   - {fileID: 1195907090}
   - {fileID: 423379260}
-  - {fileID: 67671535}
   - {fileID: 35008800}
   - {fileID: 1336380075}
   - {fileID: 801267879}
   - {fileID: 66388469}
   - {fileID: 836585172}
   - {fileID: 432623872}
-  - {fileID: 1336380075}
-  - {fileID: 35008800}
   - {fileID: 952743246}
+  - {fileID: 1142996423}
