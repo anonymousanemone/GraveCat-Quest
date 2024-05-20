@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
 {
     private SpriteRenderer render;
     private int[] winAmount = { 15, 10, 10, 10, 5 };
-    [SerializeField] GameObject winMenu;
+    [SerializeField] private GameObject winMenu;
     private int curSceneIndex;
+    [SerializeField] private Animator transition;
+    //LevelManager levelInstance;
 
     private void Start()
     {
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
         }
         curSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //Debug.Log(curSceneIndex);
+
     }
 
     //tutorial code from: https://www.youtube.com/watch?v=-7I0slJyi8g&ab_channel=Chris%27Tutorials
@@ -50,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     private void showLoot()
     {
-        if (ScoreManager.instance.getScore() > winAmount[curSceneIndex-1] || Input.GetKeyDown("q"))
+        if (LevelManager.instance.getScore() > winAmount[curSceneIndex-1] || Input.GetKeyDown("q"))
         {
             render.enabled = true;
         }
@@ -59,7 +62,8 @@ public class GameManager : MonoBehaviour
     IEnumerator DelayThenFade()
     {
         yield return new WaitForSeconds(1);
-        winMenu.SetActive(true);
+        //winMenu.SetActive(true);
+        transition.SetTrigger("start");
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(curSceneIndex+1);
     }

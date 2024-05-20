@@ -1,0 +1,102 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneControl : MonoBehaviour
+{
+    public GameObject pauseScreen;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public GameObject playScreen;
+
+    private static int homeSceneIndex = 0;
+    private int curSceneIndex;
+
+    private bool paused;
+
+    public static SceneControl instance;
+
+
+    private void Start()
+    {
+        instance = this;
+        curSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        paused = false;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
+    /** Scene changes **/
+
+    public static void NextScene()
+    {
+        int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = curSceneIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex);
+        Time.timeScale = 1f;
+    }
+
+    public static void MenuScene()
+    {
+        int curSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        PlayerPrefs.SetInt("SavedScene", curSceneIndex);
+        SceneManager.LoadScene(homeSceneIndex);
+        Time.timeScale = 1f;
+    }
+
+    public static void MoveToScene(int sceneID)
+    {
+        SceneManager.LoadScene(sceneID);
+        Time.timeScale = 1f;
+    }
+
+
+    /** Game options **/
+
+    public void TogglePause()
+    {
+        if (!paused)
+        {
+            Pause();
+        }
+        else
+        {
+            Resume();
+        }
+
+    }
+
+    public void Restart()
+    {
+        //https://www.youtube.com/watch?v=_cR_rRkrFy4&t=79s&ab_channel=ThegamedevTraum
+        SceneManager.LoadScene(curSceneIndex);
+        Time.timeScale = 1f;
+    }
+
+    public void Pause()
+    {
+        paused = true;
+        instance.pauseScreen.SetActive(paused);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        paused = false;
+        instance.pauseScreen.SetActive(paused);
+        Time.timeScale = 1f;
+    }
+
+    public static void ShowScreen(GameObject screen)
+    {
+        screen.SetActive(true);
+        Time.timeScale = 0f;
+    }
+}

@@ -10,7 +10,7 @@ public class BirdMovement : MonoBehaviour
     private bool isOriginalBird = true;
 
     public int scoreValue = 10;
-    [SerializeField] private ScoreManager instance;
+    //[SerializeField] private LevelManager instance;
 
     private TDCameraController cam;
 
@@ -52,7 +52,7 @@ public class BirdMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            instance.IncreaseScore(scoreValue);
+            LevelManager.instance.IncreaseScore(scoreValue);
 
             Destroy(gameObject);
         }

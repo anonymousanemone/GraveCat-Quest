@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3327484896226966479}
-  - component: {fileID: 2894682215459146103}
+  - component: {fileID: 2991546694084306715}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -26,13 +26,13 @@ Transform:
   m_GameObject: {fileID: 950471445488893591}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100.2207, y: -338.11032, z: 0.010249959}
+  m_LocalPosition: {x: -390.2207, y: -189.59732, z: 0.010249959}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7583187035108392962}
+  m_Father: {fileID: 4640718881171342362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2894682215459146103
+--- !u!114 &2991546694084306715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,10 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 950471445488893591}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0d299d9907644499763c42534f996f, type: 3}
+  m_Script: {fileID: 11500000, guid: 880d6fd7639eb420ea0361eb21228b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2198560531159446309}
+  lootSprite: []
 --- !u!1 &1054878377794554434
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +77,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2195322944011823270}
-  - {fileID: 3327484896226966479}
   m_Father: {fileID: 4640718881171342362}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
@@ -288,6 +288,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2398755916262954044}
+  - {fileID: 3327484896226966479}
   - {fileID: 7583187035108392962}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -450,6 +451,18 @@ PrefabInstance:
     - target: {fileID: 5450949448786748804, guid: b28087696316544ceb1b18f28ef68d4d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609868213070340969, guid: b28087696316544ceb1b18f28ef68d4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609868213070340969, guid: b28087696316544ceb1b18f28ef68d4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6609868213070340969, guid: b28087696316544ceb1b18f28ef68d4d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
