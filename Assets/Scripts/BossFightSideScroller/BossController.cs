@@ -22,7 +22,7 @@ public class BossController : MonoBehaviour
 
     private bool specialAttackCompleted = false;
 
-    public GameObject winScreen;
+    //public GameObject winScreen;
     public Camera mainCamera;
 
     private GameObject chandelier; 
@@ -35,7 +35,7 @@ public class BossController : MonoBehaviour
         StartCoroutine(PerformAttack());
         anim = GetComponent<Animator>();
         playerAnim = player.GetComponent<Animator>();
-        winScreen.SetActive(false);
+        //winScreen.SetActive(false);
         playerDead = false;
 
         chandelier = GameObject.FindGameObjectWithTag("chandelier");
@@ -126,8 +126,9 @@ public class BossController : MonoBehaviour
         else if (collision.gameObject.tag == "chandelier")
         {
             Debug.Log("Chandelier hit the Boss!"); 
-            winScreen.SetActive(true);
             anim.SetBool("death", true);
+            //winScreen.SetActive(true);
+            SceneControl.instance.WinGame();
         }
     }
 

@@ -35,7 +35,7 @@ public class SceneControl : MonoBehaviour
 
     public void WinGame()
     {
-        GameObject.Find("/Plague Crow").SetActive(false);
+        GameObject.FindWithTag("PlagueCrow").SetActive(false);
         GameObject.Find("/BirdSpawner").SetActive(false);
         StartCoroutine(winning(1f));
     }
