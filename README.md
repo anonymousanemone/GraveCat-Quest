@@ -5,6 +5,6 @@ chasing birds and collecting artifacts. However, they must evade the relentless 
 multiple levels with increasing difficulty and a story-driven progression leading to a final boss battle against an ancient being summoned by the cat. The requirements
 will be fulfilled in the following way:
 
--Win/lose mechanic in every level due to Plague doctor and final boss
--Plague doctor has pathfinding AI + procedural generation of levels
--Game will include splash screen and multiple levels
+- Win/lose mechanic in every level due to Plague doctor and final boss
+- Plague doctor has pathfinding AI + procedural generation of levels
+- Game will include splash screen and multiple levels
