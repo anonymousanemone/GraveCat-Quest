@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4931607823124837493}
   - component: {fileID: 4095438021912846962}
-  - component: {fileID: 4981122038286560024}
+  - component: {fileID: 6869087303477537999}
   - component: {fileID: 8049992220010416090}
   m_Layer: 0
   m_Name: loot
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4981122038286560024
+--- !u!114 &6869087303477537999
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,10 +95,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5429349605838537380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c499121bf321a4309aef25298eb3c424, type: 3}
+  m_Script: {fileID: 11500000, guid: b556b090043794ebcb56b5e38b858c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winMenu: {fileID: 6504438876973972812, guid: dd848c93265ae49dcacb82d50dec1bdd, type: 3}
 --- !u!61 &8049992220010416090
 BoxCollider2D:
   m_ObjectHideFlags: 0

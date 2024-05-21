@@ -5,7 +5,7 @@ using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
-    private TextMeshProUGUI buttonText;
+    [SerializeField] private TextMeshProUGUI buttonText;
     private int sceneToContinue;
 
     [SerializeField] int mapSceneID;

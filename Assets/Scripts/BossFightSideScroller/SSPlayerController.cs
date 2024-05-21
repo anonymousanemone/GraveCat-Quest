@@ -18,7 +18,7 @@ public class player_controller : MonoBehaviour
     private Vector2 input;
     private bool isFacingRight = true;
     private bool dead;
-    public GameObject gameOverUI;
+    //public GameObject gameOverUI;
 
     public int health = 3;  
     public float invincibilityDuration = 1.5f; 
@@ -33,7 +33,7 @@ public class player_controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         dead = false;
-        gameOverUI.SetActive(false);
+        //gameOverUI.SetActive(false);
         healthBar.SetMaxHealth(health);
     }
 
@@ -51,10 +51,13 @@ public class player_controller : MonoBehaviour
         anim.SetBool("isMoving", input.x != 0);
         anim.SetBool("grounded", grounded);
         if (dead)
-        { 
-            gameOverUI.SetActive(true);
+        {
+            //TODO
             anim.SetBool("dead", true);
             rb.velocity = new Vector2(0,0);
+            // MODIFIED BY SOPHIA
+            SceneControl.instance.LoseGame();
+            //gameOverUI.SetActive(true); 
         }
 
         if (isInvincible)
@@ -113,7 +116,9 @@ public class player_controller : MonoBehaviour
             {
                 dead = true;
                 anim.SetBool("dead", true);
-                gameOverUI.SetActive(true);  
+                // MODIFIED BY SOPHIA
+                SceneControl.instance.LoseGame();
+                //gameOverUI.SetActive(true);  
             }
 
             isInvincible = true;

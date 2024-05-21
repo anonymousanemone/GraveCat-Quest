@@ -20,8 +20,10 @@ public class PlagueDoctorAI : MonoBehaviour
 
     private List<Vector3> path;
     private int currentPathIndex = 0; 
-    public bool playerDead; 
-    public GameObject gameOverUI;
+    public bool playerDead;
+
+    //[SerializeField] private AudioClip attackSound;
+    private AudioSource audio_src;
 
     private void Start()
     {
@@ -34,10 +36,9 @@ public class PlagueDoctorAI : MonoBehaviour
 
         pathfinder = FindObjectOfType<Pathfinder>();
 
-        gameOverUI.SetActive(false);
-
         playerDead = false;
 
+        audio_src = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -117,10 +118,12 @@ public class PlagueDoctorAI : MonoBehaviour
     private void AttackPlayer()
     {
         animator.SetTrigger("attack");
-
         playerDead = true;
+        //audio_src.clip = attackSound;
+        audio_src.Play();
 
-        gameOverUI.SetActive(true);
+        SceneControl.instance.LoseGame();
+        //gameOverUI.SetActive(true);
         //Time.timeScale = 0f;
     }
 }

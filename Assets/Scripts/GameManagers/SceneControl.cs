@@ -33,6 +33,35 @@ public class SceneControl : MonoBehaviour
         }
     }
 
+    public void WinGame()
+    {
+        GameObject.Find("/Plague Crow").SetActive(false);
+        GameObject.Find("/BirdSpawner").SetActive(false);
+        StartCoroutine(winning(1f));
+    }
+    IEnumerator winning(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playScreen.SetActive(false);
+        winScreen.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+
+    public void LoseGame()
+    {
+        GameObject.Find("/BirdSpawner").SetActive(false);
+        StartCoroutine(losing(1.5f));
+    }
+    IEnumerator losing(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playScreen.SetActive(false);
+        loseScreen.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+
     /** Scene changes **/
 
     public static void NextScene()
@@ -99,4 +128,5 @@ public class SceneControl : MonoBehaviour
         screen.SetActive(true);
         Time.timeScale = 0f;
     }
+
 }

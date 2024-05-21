@@ -52,7 +52,7 @@ public class BirdMovement : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            LevelManager.instance.IncreaseScore(scoreValue);
+            Score.instance.IncreaseScore(scoreValue);
 
             Destroy(gameObject);
         }
